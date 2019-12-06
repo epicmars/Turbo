@@ -37,7 +37,6 @@ public class Turbo {
         }
         if (!(context instanceof Application)) {
             Toast.makeText(context, R.string.not_in_application_context, Toast.LENGTH_SHORT).show();
-            return;
         }
         if (Timber.treeCount() == 0) {
             Timber.plant(new Timber.DebugTree());

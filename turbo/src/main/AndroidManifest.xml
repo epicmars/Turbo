@@ -9,9 +9,12 @@
         <activity
             android:name=".TurboActivity"
             android:label="@string/title_activity_turbo"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:icon="@mipmap/ic_turbo_launcher"
+            android:roundIcon="@mipmap/ic_turbo_launcher_round">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

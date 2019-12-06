@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="not_in_application_context">Turbo未在Application中进行初始化，若干功能可能不可用</string>
+    <string name="action_settings">设置</string>
+    <string name="title_activity_turbo">Turbo</string>
 </resources>

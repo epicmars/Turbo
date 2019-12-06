@@ -37,6 +37,7 @@ public class FloatingDotWindow implements FloatingDotView.OnDragListener {
     }
 
     public void show() {
+
         params = new WindowManager.LayoutParams();
         params.width = WindowManager.LayoutParams.WRAP_CONTENT;
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;

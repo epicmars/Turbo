@@ -61,7 +61,6 @@ public class FloatingDotView extends ConstraintLayout {
 
         Drawable icon = AppProfileHelper.getIconDrawable(context);
         if (icon != null) {
-//            fab.setBackgroundTintList(getResources().getColorStateList(android.R.color.white));
             fab.setImageDrawable(icon);
         }
         fab.setOnClickListener(
