@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,17 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-public class TurboActivity extends AppCompatActivity {
+import com.androidpi.turbo.utils.PermissionUtils;
+
+import java.util.List;
+
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
+
+public class TurboActivity extends AppCompatActivity
+        implements EasyPermissions.PermissionCallbacks {
+
+    private static final int REQ_SHORTCUT_PERM = 1;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -34,6 +45,33 @@ public class TurboActivity extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        if (!hasShortcutPermission()) {
+            PermissionUtils.requestPermission(
+                    this, REQ_SHORTCUT_PERM, PermissionUtils.SHORTCUT_PERMS, "需要快捷方式权限以在桌面创建快捷图标");
+        }
+        Turbo.install(this);
+    }
+
+    private boolean hasShortcutPermission() {
+        return EasyPermissions.hasPermissions(this, PermissionUtils.SHORTCUT_PERMS);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(
+            int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    @Override
+    public void onPermissionsGranted(int requestCode, @NonNull List<String> perms) {}
+
+    @Override
+    public void onPermissionsDenied(int requestCode, @NonNull List<String> perms) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            new AppSettingsDialog.Builder(this).build().show();
+        }
     }
 
     @Override

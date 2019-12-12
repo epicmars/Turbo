@@ -5,16 +5,22 @@
     <!-- 悬浮窗 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
+    <!-- 修改快捷图标 -->
+    <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="android.permission.UNINSTALL_SHORTCUT" />
+
     <application>
         <activity
             android:name=".TurboActivity"
             android:label="@string/title_activity_turbo"
             android:theme="@style/AppTheme.NoActionBar"
             android:icon="@mipmap/ic_turbo_launcher"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.androidpi.turbo"
             android:roundIcon="@mipmap/ic_turbo_launcher_round">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.CREATE_SHORTCUT"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

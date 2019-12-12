@@ -17,7 +17,6 @@ package com.androidpi.turbo.sample;
 
 import android.app.Application;
 
-import com.androidpi.turbo.Turbo;
 import timber.log.Timber;
 
 public class SampleApplication extends Application {
@@ -26,6 +25,5 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
         Timber.plant(new Timber.DebugTree());
-        Turbo.install(this);
     }
 }
