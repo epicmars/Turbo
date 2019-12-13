@@ -13,27 +13,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.androidpi.turbo.service;
+package com.androidpi.turbo.service
 
-import android.app.Service;
-import android.content.Context;
-import android.content.Intent;
-import android.os.IBinder;
+import android.app.Service
+import android.content.Context
+import android.content.Intent
+import android.os.IBinder
 
-public class TurboService extends Service {
-
-    public static void start(Context context) {
-        Intent starter = new Intent(context, TurboService.class);
-        context.startService(starter);
+class TurboService : Service() {
+    override fun onBind(intent: Intent): IBinder? {
+        return null
     }
 
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
+    override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
+        return START_STICKY
     }
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        return START_STICKY;
+    companion object {
+        fun start(context: Context) {
+            val starter = Intent(context, TurboService::class.java)
+            context.startService(starter)
+        }
     }
 }

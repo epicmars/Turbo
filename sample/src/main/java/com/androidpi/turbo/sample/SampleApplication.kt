@@ -13,7 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.androidpi.turbo;
+package com.androidpi.turbo.sample
 
-public class TurboView {
+import androidx.multidex.MultiDexApplication
+import com.androidpi.turbo.Turbo
+import timber.log.Timber
+import timber.log.Timber.DebugTree
+
+class SampleApplication : MultiDexApplication() {
+    override fun onCreate() {
+        super.onCreate()
+        Timber.plant(DebugTree())
+        Turbo.install(this)
+    }
 }

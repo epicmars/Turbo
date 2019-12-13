@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+//apply from: '../arch/clean-arch.gradle'
 
 android {
     compileSdkVersion 28
@@ -25,6 +28,11 @@ android {
     dataBinding {
         enabled = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -37,13 +45,25 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    // layoutbinder
+    implementation 'com.androidpi:layoutbinder:1.3.0'
+    kapt 'com.androidpi:layoutbinder-compiler:1.3.0'
+    // jetbooster
+    implementation 'com.androidpi:jetbooster:1.0.0'
+    kapt 'com.androidpi:jetbooster-compiler:1.0.0'
+    // literefresh
+    implementation 'com.androidpi:literefresh:0.10.1'
+    implementation 'com.androidpi:literefresh-widgets:0.10.1'
+
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'pub.devrel:easypermissions:3.0.0'
     implementation "androidx.core:core-ktx:1.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation project(':arch:common')
+    implementation project(':arch:base')
+    implementation project(':arch:data')
+    implementation project(':arch:business')
 }
 
 apply from: rootProject.file('publish.gradle')
-repositories {
-    mavenCentral()
-}

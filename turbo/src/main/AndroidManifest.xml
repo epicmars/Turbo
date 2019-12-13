@@ -9,9 +9,12 @@
     <uses-permission android:name="android.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="android.permission.UNINSTALL_SHORTCUT" />
 
+    <!--  任务栈  -->
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+
     <application>
         <activity
-            android:name=".TurboActivity"
+            android:name="com.androidpi.turbo.ui.activity.TurboActivity"
             android:label="@string/title_activity_turbo"
             android:theme="@style/AppTheme.NoActionBar"
             android:icon="@mipmap/ic_turbo_launcher"

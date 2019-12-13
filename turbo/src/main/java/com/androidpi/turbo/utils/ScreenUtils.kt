@@ -1,6 +1,6 @@
-package com.androidpi.turbo.utils;
+package com.androidpi.turbo.utils
 
-import android.content.Context;
+import android.content.Context
 
 /*
  * Copyright 2019 yinpinjiu@gmail.com
@@ -17,13 +17,12 @@ import android.content.Context;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-public class ScreenUtils {
-
-    public static int screenWidth(Context context) {
-        return context.getResources().getDisplayMetrics().widthPixels;
+object ScreenUtils {
+    fun screenWidth(context: Context): Int {
+        return context.resources.displayMetrics.widthPixels
     }
 
-    public static int screenHeight(Context context) {
-        return context.getResources().getDisplayMetrics().heightPixels;
+    fun screenHeight(context: Context): Int {
+        return context.resources.displayMetrics.heightPixels
     }
 }
