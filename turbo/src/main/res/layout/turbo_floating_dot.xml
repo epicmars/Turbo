@@ -4,12 +4,12 @@
        xmlns:tools="http://schemas.android.com/tools"
        android:layout_width="200dp"
        android:layout_height="200dp"
-       android:theme="@style/AppTheme"
+       android:theme="@style/TurboAppTheme"
        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
-        android:theme="@style/AppTheme"
+        android:theme="@style/TurboAppTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="32dp"

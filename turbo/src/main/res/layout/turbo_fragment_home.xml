@@ -12,7 +12,7 @@
             android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="4"
-            tools:listitem="@layout/vh_home_entry"
+            tools:listitem="@layout/turbo_vh_home_entry"
             tools:itemCount="9"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

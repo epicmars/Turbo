@@ -1,7 +1,7 @@
 <resources>
-    <string name="title_activity_turbo">Turbo</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="turbo_title_activity_turbo">Turbo</string>
+    <string name="turbo_action_settings">Settings</string>
+    <string name="turbo_section_format">Hello World from section: %1$d</string>
 
-    <string name="not_in_application_context">Turbo is not initialized in Application, some functions may not be available.</string>
+    <string name="turbo_not_in_application_context">Turbo is not initialized in Application, some functions may not be available.</string>
 </resources>

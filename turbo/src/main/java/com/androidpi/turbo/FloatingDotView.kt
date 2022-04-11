@@ -78,7 +78,7 @@ class FloatingDotView @JvmOverloads constructor(
     }
 
     init {
-        View.inflate(context, R.layout.floating_dot, this)
+        View.inflate(context, R.layout.turbo_floating_dot, this)
         fab = findViewById(R.id.fab)
         val icon = AppProfileHelper.getIconDrawable(context)
         if (icon != null) {

@@ -16,7 +16,6 @@
 package com.androidpi.turbo.sample
 
 import androidx.multidex.MultiDexApplication
-import com.androidpi.turbo.Turbo
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
@@ -24,6 +23,6 @@ class SampleApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(DebugTree())
-        Turbo.install(this)
+//        Turbo.install(this)
     }
 }

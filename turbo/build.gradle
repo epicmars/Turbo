@@ -3,16 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-//apply from: '../arch/clean-arch.gradle'
-
 android {
     compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -33,6 +29,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    resourcePrefix "turbo_"
 }
 
 dependencies {
@@ -55,15 +53,17 @@ dependencies {
     implementation 'com.androidpi:literefresh:0.10.1'
     implementation 'com.androidpi:literefresh-widgets:0.10.1'
 
+    // RxJava
+    api 'io.reactivex.rxjava2:rxjava:2.2.12'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'pub.devrel:easypermissions:3.0.0'
     implementation "androidx.core:core-ktx:1.1.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation project(':arch:common')
-    implementation project(':arch:base')
-    implementation project(':arch:data')
-    implementation project(':arch:business')
+    // base
+    implementation 'androidx.palette:palette:1.0.0'
 }
 
 apply from: rootProject.file('publish.gradle')

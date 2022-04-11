@@ -13,7 +13,7 @@ import com.androidpi.turbo.R
 import com.androidpi.turbo.ui.fragment.HomeFragment
 import com.androidpi.turbo.ui.fragment.PlaceholderFragment
 import com.androidpi.turbo.utils.PermissionUtils
-import kotlinx.android.synthetic.main.activity_turbo.*
+import kotlinx.android.synthetic.main.turbo_activity_turbo.*
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
 import pub.devrel.easypermissions.EasyPermissions.PermissionCallbacks
@@ -26,7 +26,7 @@ class TurboActivity : AppCompatActivity(), PermissionCallbacks {
 //    lateinit var binding: ActivityTurboBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_turbo)
+        setContentView(R.layout.turbo_activity_turbo)
         setSupportActionBar(toolbar)
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
         // Set up the ViewPager with the sections adapter.
@@ -69,7 +69,7 @@ class TurboActivity : AppCompatActivity(), PermissionCallbacks {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean { // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_profile, menu)
+        menuInflater.inflate(R.menu.turbo_menu_profile, menu)
         return true
     }
 
@@ -88,7 +88,7 @@ class TurboActivity : AppCompatActivity(), PermissionCallbacks {
         private lateinit var fragments: List<Fragment>
 
         init {
-            fragments = listOf(HomeFragment.newInstance(), PlaceholderFragment.newInstance(1))
+            fragments = listOf<Fragment>(HomeFragment.newInstance(), PlaceholderFragment.newInstance(1))
         }
 
         override fun getItem(position: Int): Fragment {

@@ -42,7 +42,7 @@ if (isAndroidProject()) {
             locale 'en'
         }
         classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-        classpath += configurations.compile
+        classpath += configurations.implementation
     }
 
 // build a jar with javadoc

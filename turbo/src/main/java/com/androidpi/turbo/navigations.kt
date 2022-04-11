@@ -9,8 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.provider.Settings
-import com.androidpi.app.common.utils.AppUtils
-import com.androidpi.app.common.utils.ToastUtils
+import com.androidpi.turbo.common.ToastUtils
 
 /**
  * Created on 2019-12-12.
@@ -20,7 +19,6 @@ object NavCenter {
 
     fun navToApp(context: Context?) {
         val mainIntent = launchIntent(context)
-        val mainComponent = launchIntent(context)?.component
         val am = context?.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
         var infos = ArrayList<ActivityManager.RecentTaskInfo>()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -32,18 +30,13 @@ object NavCenter {
             infos.addAll(tasks)
         }
         infos.forEach {
-            if (AppUtils.has23()) {
-                if (it.baseActivity.equals(mainComponent)) {
-                    am.moveTaskToFront(it.id, 0)
-                    return@forEach
-                }
-            } else {
-                if (it.baseIntent.equals(mainIntent)) {
-                    am.moveTaskToFront(it.id, 0)
-                    return@forEach
-                }
+            if (it.baseIntent.equals(mainIntent)) {
+                am.moveTaskToFront(it.id, 0)
+                return@forEach
             }
         }
+        mainIntent?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        context.startActivity(mainIntent)
     }
 
     private fun launchIntent(context: Context?) =
@@ -51,7 +44,7 @@ object NavCenter {
 
     fun navToAppDetailSettings(context: Context?) {
         if (context == null) {
-            ToastUtils.shortToast(Turbo.instance()?.context, "空的")
+            ToastUtils.shortToast(Turbo.context, "空的")
             return
         }
         val intent =

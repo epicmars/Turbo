@@ -15,12 +15,12 @@
     <application>
         <activity
             android:name="com.androidpi.turbo.ui.activity.TurboActivity"
-            android:label="@string/title_activity_turbo"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:icon="@mipmap/ic_turbo_launcher"
+            android:label="@string/turbo_title_activity_turbo"
+            android:theme="@style/TurboAppTheme.NoActionBar"
+            android:icon="@mipmap/turbo_ic_turbo_launcher"
+            android:roundIcon="@mipmap/turbo_ic_turbo_launcher_round"
             android:launchMode="singleTask"
-            android:taskAffinity="com.androidpi.turbo"
-            android:roundIcon="@mipmap/ic_turbo_launcher_round">
+            android:taskAffinity="${applicationId}.turbo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.CREATE_SHORTCUT"/>
@@ -38,6 +38,10 @@
                 <action android:name="com.androidpi.turbo.service.ProfileService"/>
             </intent-filter>
         </service>
+
+        <provider
+            android:authorities="${applicationId}.turbo"
+            android:name=".contentprovider.TurboInstaller"/>
     </application>
 
 </manifest>

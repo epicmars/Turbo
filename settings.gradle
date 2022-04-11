@@ -1,3 +1,2 @@
 rootProject.name = 'Turbo'
 include ':sample', ':turbo'
-include ':arch:base', ':arch:common', ':arch:data', ':arch:business'

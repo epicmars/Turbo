@@ -23,7 +23,7 @@ class HomeEntryView @TargetApi(Build.VERSION_CODES.LOLLIPOP) constructor(
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
     ) : this(context, attrs, defStyleAttr, 0) {
-       View.inflate(context, R.layout.view_home_entry, this)
+       View.inflate(context, R.layout.turbo_view_home_entry, this)
         orientation = VERTICAL
     }
 }
